@@ -17,15 +17,13 @@ using System.Windows.Shapes;
 namespace RegApp.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для PageMenu.xaml
+    /// Логика взаимодействия для PageAdmin.xaml
     /// </summary>
-    public partial class PageMenu : Page
+    public partial class PageAdmin : Page
     {
-        public PageMenu()
+        public PageAdmin()
         {
             InitializeComponent();
-            tbWelcome.Text=
-
         }
 
         private void BtnExit_Click(object sender, RoutedEventArgs e)

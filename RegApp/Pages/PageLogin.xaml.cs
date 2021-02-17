@@ -31,9 +31,49 @@ namespace RegApp.Pages
             Frames.frmNav.Navigate(new PageReg());
         }
 
+       
         private void BtnCheck_Click(object sender, RoutedEventArgs e)
         {
-            Frames.frmNav.Navigate(new PageMenu());
+            try
+            {
+                /*
+
+                var userTable = DataBase.oladik.User.FirstOrDefault(
+                    omletic => omletic.Login == TxbLogin.Text &&
+                    omletic.Password == PsbPassword.Password);
+                    */
+                var userTable = DataBase.oladik.User.FirstOrDefault(
+                    petya => petya.Login == TxbLogin.Text &&
+                    petya.Password == PsbPassword.Password
+                );
+                if (userTable == null)
+                {
+                    MessageBox.Show("Одно из трех либо вы меня проверяете, либо вы забывчивый, либо вы промазали. Увы данные некорректны", "Предупреждение", MessageBoxButton.OK);
+                }
+                else
+                {
+                    switch (userTable.IdRole)
+                    {
+                        case 1: MessageBox.Show("Добро пожаловать О великое божество", "Приветсвие", MessageBoxButton.OK);
+                            Frames.frmNav.Navigate(new PageAdmin());
+                            break;
+                        case 2:
+                            MessageBox.Show("Добро пожаловать простой смертный", "Приветсвие", MessageBoxButton.OK);
+                            Frames.frmNav.Navigate(new PageMenu());
+                            break;
+                        default: MessageBox.Show("Жулик не ломай", "Это аморально", MessageBoxButton.OK);
+                            TxbLogin.Text = null;
+                            PsbPassword.Password = null;
+                            break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "ОШИБКА", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                
+            }
         }
     }
 }

@@ -20,6 +20,6 @@ namespace RegApp.DataBases
         public string Email { get; set; }
         public int IdRole { get; set; }
     
-        public virtual Role_1 Role_1 { get; set; }
+        public virtual Role Role { get; set; }
     }
 }

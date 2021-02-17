@@ -13,10 +13,10 @@ namespace RegApp.DataBases
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class OladikEntities : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public OladikEntities()
+            : base("name=OladikEntities")
         {
         }
     
@@ -25,7 +25,7 @@ namespace RegApp.DataBases
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Role_1> Role_1 { get; set; }
+        public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
     }

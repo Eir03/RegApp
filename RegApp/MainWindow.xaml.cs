@@ -26,6 +26,9 @@ namespace RegApp
         public MainWindow()
         {
             InitializeComponent();
+
+            DataBase.oladik = new DataBases.OladikEntities();
+
             Frames.frmNav = FrmMain;
             FrmMain.Navigate(new PageLogin());
         }

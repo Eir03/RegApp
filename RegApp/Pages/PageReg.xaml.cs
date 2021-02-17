@@ -1,4 +1,5 @@
 ﻿using RegApp.Classes;
+using RegApp.DataBases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,7 @@ namespace RegApp.Pages
         {
             InitializeComponent();
         }
-        string email = "[@][.]"; // Для проверки на наличие этих символов
+        string email = "[@]"; // Для проверки на наличие этих символов
         private void BtnCreate_Click(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(TxbLogin.Text)
@@ -41,8 +42,8 @@ namespace RegApp.Pages
                     {
                         if (Regex.IsMatch(TxbEmail.Text, email))
                         {
-                            MessageBox.Show("Регистрация успешна!");
-                            Frames.frmNav.Navigate(new PageLogin());
+                            Add(TxbLogin.Text,TxbPass.Password,TxbEmail.Text);
+                            
                         }
                         else
                             MessageBox.Show("Проверьте правильность почты");
@@ -60,6 +61,40 @@ namespace RegApp.Pages
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             Frames.frmNav.GoBack();
+        }
+
+        private void Add(string login, string password, string email)
+        {
+            try
+            {
+            User add = new User()
+            {
+                Login = login,
+                Password = password,
+                Email = email,
+                IdRole = 2
+                
+            };
+                var check = DataBase.oladik.User.FirstOrDefault(valya => valya.Login == login);
+                if (check == null)
+                {
+                    DataBase.oladik.User.Add(add);
+                    DataBase.oladik.SaveChanges();
+                    MessageBox.Show("Регистрация успешна!");
+                    Frames.frmNav.Navigate(new PageLogin());
+                }
+                else
+                {
+                    MessageBox.Show("Такой логин уже существует", "Увы");
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString(), "ОШИБКА");
+            }
         }
     }
 }

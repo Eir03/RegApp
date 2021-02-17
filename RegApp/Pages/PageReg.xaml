@@ -11,44 +11,47 @@
     <Grid>
         <StackPanel
             HorizontalAlignment="Center"
-            VerticalAlignment="Center">
-            <!--Поле ввода и Текст-->
-            <StackPanel Orientation ="Horizontal">
-                <TextBlock Text="Введите логин: "/>
-                <TextBox 
-                    x:Name="TxbLogin"
-                    Width="199"/>
+            VerticalAlignment="Center"
+            Width="250">
+            <!--Поле ввода и Текст -->        
+                <TextBlock Text="Введите логин: "
+                           FontSize="12pt"/>
+            <TextBox Name="TxbLogin"
+                     Margin="0 0 0 5"/>
 
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Введите пароль: " Width="108"/>
-                <PasswordBox 
-                    Name="TxbPass"
-                    Width="176"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Повторите пароль: "/>
+
+            <TextBlock Text="Введите пароль: "
+                       FontSize="12pt"/>
+                <PasswordBox Name="TxbPass"
+                             Margin="0 0 0 5"/>
+            
+                <TextBlock Text="Повторите пароль: "
+                           FontSize="12pt"/>
                 <PasswordBox 
                     Name="TxbPassRepeat"
-                    Width="176"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Введите email: "/>
-                <TextBox 
-                    Name="TxbEmail"
-                    Width="202"/>
-            </StackPanel>
+                    Margin="0 0 0 5"/>
+            
+            
+                <TextBlock Text="Введите email: "
+                           FontSize="12pt"/>
+                <TextBox Name="TxbEmail"
+                         Margin="0 0 0 10"/>
+            
             <Button 
                 Height="30"
                 Name="BtnCreate"
                 Click="BtnCreate_Click"
-                Content="Создать"/>
-        </StackPanel>
-        <Button VerticalAlignment="Top"
+                Content="Создать"
+                FontSize="10pt"/>
+        
+            
+            </StackPanel>
+            <Button VerticalAlignment="Top"
                 HorizontalAlignment="Right"
                 Content="Назад "
                 Margin="10"
                 Padding="10"
-                Name="BtnBack" Click="BtnBack_Click"/>
+                Name="BtnBack" Click="BtnBack_Click"
+                FontSize="10pt"/>
     </Grid>
 </Page>

@@ -4,8 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="79b38a68ce5741079f588df571eb4234" Name="Diagram1">
-        <EntityTypeShape EntityType="OladikModel.Role_1" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+      <Diagram DiagramId="59d8571542514e0880217707a2f8c7a7" Name="Diagram1">
+        <EntityTypeShape EntityType="OladikModel.Role" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="OladikModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="OladikModel.User" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="OladikModel.FK_User_Role_1" ManuallyRouted="false" />

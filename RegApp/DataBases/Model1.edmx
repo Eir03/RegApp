@@ -5,7 +5,7 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="Хранилище OladikModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Role 1">
+        <EntityType Name="Role">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -33,10 +33,10 @@
           <Property Name="IdRole" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_User_Role 1">
-          <End Role="Role 1" Type="Self.Role 1" Multiplicity="1" />
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Role 1">
+            <Principal Role="Role">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="User">
@@ -45,11 +45,11 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Хранилище OladikModelContainer">
-          <EntitySet Name="Role 1" EntityType="Self.Role 1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_User_Role 1" Association="Self.FK_User_Role 1">
-            <End Role="Role 1" EntitySet="Role 1" />
+            <End Role="Role" EntitySet="Role" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
@@ -58,13 +58,13 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="OladikModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Role_1">
+        <EntityType Name="Role">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="User" Relationship="Self.FK_User_Role_1" FromRole="Role_1" ToRole="User" />
+          <NavigationProperty Name="User" Relationship="Self.FK_User_Role_1" FromRole="Role" ToRole="User" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -85,13 +85,13 @@
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdRole" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Role_1" Relationship="Self.FK_User_Role_1" FromRole="User" ToRole="Role_1" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_User_Role_1" FromRole="User" ToRole="Role" />
         </EntityType>
         <Association Name="FK_User_Role_1">
-          <End Role="Role_1" Type="Self.Role_1" Multiplicity="1" />
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Role_1">
+            <Principal Role="Role">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="User">
@@ -99,12 +99,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Role_1" EntityType="Self.Role_1" />
+        <EntityContainer Name="OladikEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Role" EntityType="Self.Role" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="User" EntityType="Self.User" />
           <AssociationSet Name="FK_User_Role_1" Association="Self.FK_User_Role_1">
-            <End Role="Role_1" EntitySet="Role_1" />
+            <End Role="Role" EntitySet="Role" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
@@ -113,10 +113,10 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище OladikModelContainer" CdmEntityContainer="Entities">
-          <EntitySetMapping Name="Role_1">
-            <EntityTypeMapping TypeName="OladikModel.Role_1">
-              <MappingFragment StoreEntitySet="Role 1">
+        <EntityContainerMapping StorageEntityContainer="Хранилище OladikModelContainer" CdmEntityContainer="OladikEntities1">
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="OladikModel.Role">
+              <MappingFragment StoreEntitySet="Role">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RegApp"
         mc:Ignorable="d"
-        Title="♥Типа серьезная программа♥ :3" Height="450" Width="800" MinWidth="400" MinHeight="200"
+        Title="♥Типа серьезная программа♥ :3" Height="450" Width="800" MinWidth="400" MinHeight="300"
         >
     <Grid>
         <Grid>
@@ -13,7 +13,7 @@
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="3*"/>
             </Grid.RowDefinitions>
-            <StackPanel Background="LightSeaGreen"/>
+            <StackPanel Background="#1AA3C9"/>
             <Frame
             Grid.Row="1"
             NavigationUIVisibility="Hidden"

@@ -13,23 +13,26 @@
          HorizontalAlignment="Center"
          VerticalAlignment="Center">
             <TextBlock 
-                Text="Логин:"/>
+                Text="Логин:" FontSize="14pt"/>
             <TextBox
                 Name="TxbLogin"/>
             <TextBlock 
-                Text="Пароль:"/>
+                Text="Пароль:" FontSize="14pt"/>
             <PasswordBox
-                Name="PsbPassword"/>
+                Name="PsbPassword"
+                Margin="0 0 0 10"/>
             <Button 
                 Name="BtnCheck"
                 Click="BtnCheck_Click"
-                Content="Войти"/>
+                Content="Войти"
+                FontSize="12pt"/>
         </StackPanel>
         <Button VerticalAlignment="Top"
                 HorizontalAlignment="Right"
                 Content="Я еще не смешарик "
                 Margin="10"
                 Padding="10"
-                Name="Btn_reg" Click="Btn_reg_Click"/>
+                Name="Btn_reg" Click="Btn_reg_Click"
+                FontSize="10pt"/>
     </Grid>
 </Page>
