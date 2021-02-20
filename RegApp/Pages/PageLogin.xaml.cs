@@ -36,25 +36,19 @@ namespace RegApp.Pages
         {
             try
             {
-                /*
-
-                var userTable = DataBase.oladik.User.FirstOrDefault(
-                    omletic => omletic.Login == TxbLogin.Text &&
-                    omletic.Password == PsbPassword.Password);
-                    */
                 var userTable = DataBase.oladik.User.FirstOrDefault(
                     petya => petya.Login == TxbLogin.Text &&
-                    petya.Password == PsbPassword.Password
-                );
+                    petya.Password == PsbPassword.Password);
                 if (userTable == null)
                 {
                     MessageBox.Show("Одно из трех либо вы меня проверяете, либо вы забывчивый, либо вы промазали. Увы данные некорректны", "Предупреждение", MessageBoxButton.OK);
                 }
                 else
                 {
+                   
                     switch (userTable.IdRole)
                     {
-                        case 1: MessageBox.Show("Добро пожаловать О великое божество", "Приветсвие", MessageBoxButton.OK);
+                        case 1: MessageBox.Show("Добро пожаловать о великое божество", "Приветсвие", MessageBoxButton.OK);
                             Frames.frmNav.Navigate(new PageAdmin());
                             break;
                         case 2:

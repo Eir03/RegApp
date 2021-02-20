@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Schema;
 
 namespace RegApp.Pages
 {
@@ -24,13 +25,19 @@ namespace RegApp.Pages
         public PageMenu()
         {
             InitializeComponent();
-            tbWelcome.Text=
-
+            
         }
 
+        
+        
         private void BtnExit_Click(object sender, RoutedEventArgs e)
         {
             Frames.frmNav.Navigate(new PageLogin());
+        }
+
+        private void btnChange_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

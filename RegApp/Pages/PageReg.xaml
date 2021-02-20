@@ -15,27 +15,34 @@
             Width="250">
             <!--Поле ввода и Текст -->        
                 <TextBlock Text="Введите логин: "
-                           FontSize="12pt"/>
+                           FontSize="12pt"
+                           Name="TbLog"/>
             <TextBox Name="TxbLogin"
                      Margin="0 0 0 5"/>
 
 
+
             <TextBlock Text="Введите пароль: "
-                       FontSize="12pt"/>
-                <PasswordBox Name="TxbPass"
-                             Margin="0 0 0 5"/>
+                       FontSize="12pt"
+                       Name="TbPass"/>
+                <PasswordBox Name="PsbPass"
+                             Margin="0 0 0 5"
+                            PasswordChanged="PsbPass_PasswordChanged"/>
             
                 <TextBlock Text="Повторите пароль: "
                            FontSize="12pt"/>
                 <PasswordBox 
-                    Name="TxbPassRepeat"
-                    Margin="0 0 0 5"/>
+                    Name="PsbPassRepeat"
+                    Margin="0 0 0 5"
+                    PasswordChanged="PsbPassRepeat_PasswordChanged"/>
             
             
                 <TextBlock Text="Введите email: "
+                           Name="TbEmail"
                            FontSize="12pt"/>
                 <TextBox Name="TxbEmail"
-                         Margin="0 0 0 10"/>
+                         Margin="0 0 0 10"
+                         TextChanged="TxbEmail_TextChanged"/>
             
             <Button 
                 Height="30"

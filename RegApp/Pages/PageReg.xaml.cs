@@ -26,36 +26,19 @@ namespace RegApp.Pages
         public PageReg()
         {
             InitializeComponent();
+            BtnCreate.IsEnabled = false;
         }
         string email = "[@]"; // Для проверки на наличие этих символов
         private void BtnCreate_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(TxbLogin.Text)
-                &&
-                !string.IsNullOrEmpty(TxbLogin.Text))
+            if (!string.IsNullOrEmpty(TxbLogin.Text) &&
+                !string.IsNullOrWhiteSpace(TxbLogin.Text))
             {
-                if (!string.IsNullOrWhiteSpace(TxbPass.Password)
-                    &&
-                    !string.IsNullOrEmpty(TxbPass.Password))
-                {
-                    if (TxbPass.Password == TxbPassRepeat.Password)
-                    {
-                        if (Regex.IsMatch(TxbEmail.Text, email))
-                        {
-                            Add(TxbLogin.Text,TxbPass.Password,TxbEmail.Text);
-                            
-                        }
-                        else
-                            MessageBox.Show("Проверьте правильность почты");
-                    }
-                    else
-                        MessageBox.Show("Неправильный ввод пароля");
-                }
-                else
-                    MessageBox.Show("Проверьте пароль");
+                Add(TxbLogin.Text, PsbPass.Password, TxbEmail.Text);
             }
             else
-                MessageBox.Show("Проверьте логин");
+                TbLog.Text = "ИШЬ ТЫ";
+              
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
@@ -77,6 +60,7 @@ namespace RegApp.Pages
             };
                 var check = DataBase.oladik.User.FirstOrDefault(valya => valya.Login == login);
                 if (check == null)
+                    
                 {
                     DataBase.oladik.User.Add(add);
                     DataBase.oladik.SaveChanges();
@@ -85,7 +69,7 @@ namespace RegApp.Pages
                 }
                 else
                 {
-                    MessageBox.Show("Такой логин уже существует", "Увы");
+                    MessageBox.Show("Такой логин уже существует или вы ввели что-то запретное", "Увы");
 
                 }
 
@@ -96,5 +80,84 @@ namespace RegApp.Pages
                 MessageBox.Show(ex.ToString(), "ОШИБКА");
             }
         }
+
+        private void PsbPass_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(PsbPass.Password) &&
+               !string.IsNullOrWhiteSpace(PsbPass.Password))
+            {
+                PsbPass.Background = Brushes.LightGreen;
+                if (PsbPass.Password == PsbPassRepeat.Password)
+                BtnCreate.IsEnabled = true;
+                else
+                    BtnCreate.IsEnabled = false;
+                if (PsbPass.Password.Length > 4)
+                {
+                    TbPass.Text = "Неплохо, но есть куда стремиться";
+                    PsbPass.Background = Brushes.Green;
+                    
+                }
+                if (PsbPass.Password.Length > 7)
+                {
+                    TbPass.Text = "Нам нужно больше СИМВОЛОВ";
+
+                }
+                if (PsbPass.Password.Length > 10)
+                {
+                    TbPass.Text = "ИДЕАЛЬНО";
+                    PsbPass.Background = Brushes.DarkGreen;
+                }
+                if (PsbPass.Password.Length > 50)
+                {
+                    TbPass.Text = "Не твой уровень дорогой";
+                    PsbPass.Background = Brushes.Red;
+                    BtnCreate.IsEnabled = false;
+                }
+
+            }
+            else
+            {
+                BtnCreate.IsEnabled = false;
+                PsbPass.Background = Brushes.White;
+                TbPass.Text = "Введите пароль:";
+            }
+        }
+
+        private void PsbPassRepeat_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (PsbPass.Password == PsbPassRepeat.Password &&
+                !string.IsNullOrEmpty(PsbPass.Password) &&
+                !string.IsNullOrWhiteSpace(PsbPass.Password))
+            {
+                PsbPassRepeat.Background = Brushes.Green;
+                BtnCreate.IsEnabled = true;
+            }
+            else
+            {
+                PsbPassRepeat.Background = Brushes.White;
+                BtnCreate.IsEnabled = false;
+            }
+            
+        }
+
+        private void TxbEmail_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (Regex.IsMatch(TxbEmail.Text, email))
+            {
+                TxbEmail.Background = Brushes.Green;
+                TbEmail.Text = "Вы нашли собаке домик :3";
+            }
+            else
+            {
+                TbEmail.Text = "В мире плачет одна собака";
+                TxbEmail.Background = Brushes.White;
+            }
+            if (string.IsNullOrEmpty(TxbEmail.Text))
+            {
+                TbEmail.Text = "Введите email:";
+            }
+        }
+
+       
     }
 }
