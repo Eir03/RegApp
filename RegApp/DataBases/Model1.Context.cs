@@ -28,5 +28,6 @@ namespace RegApp.DataBases
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Question> Question { get; set; }
     }
 }

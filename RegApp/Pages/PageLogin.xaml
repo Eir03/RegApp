@@ -26,6 +26,7 @@
                 Click="BtnCheck_Click"
                 Content="Войти"
                 FontSize="12pt"/>
+            
         </StackPanel>
         <Button VerticalAlignment="Top"
                 HorizontalAlignment="Right"
@@ -34,5 +35,13 @@
                 Padding="10"
                 Name="Btn_reg" Click="Btn_reg_Click"
                 FontSize="10pt"/>
+        <Button VerticalAlignment="Bottom"
+                HorizontalAlignment="Center"
+                Content="У меня все плохо с памятью"
+                FontSize="10pt"
+                Margin="20"
+                Padding="10"
+                Name="BtnQuest"
+                Click="BtnQuest_Click"/>
     </Grid>
 </Page>

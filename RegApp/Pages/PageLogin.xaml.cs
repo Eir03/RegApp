@@ -69,5 +69,10 @@ namespace RegApp.Pages
                 
             }
         }
+
+        private void BtnQuest_Click(object sender, RoutedEventArgs e)
+        {
+            Frames.frmNav.Navigate(new PageQuestion());
+        }
     }
 }

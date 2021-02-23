@@ -9,6 +9,8 @@
         <EntityTypeShape EntityType="OladikModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="OladikModel.User" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="OladikModel.FK_User_Role_1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="OladikModel.Question" Width="1.5" PointX="3.375" PointY="4.875" />
+        <AssociationConnector Association="OladikModel.FK_User_Question" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -12,17 +12,18 @@ namespace RegApp.DataBases
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Question
     {
-        public int Id { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
-        public string Email { get; set; }
-        public int IdRole { get; set; }
-        public Nullable<int> IdQuestion { get; set; }
-        public string Answer { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Question()
+        {
+            this.User = new HashSet<User>();
+        }
     
-        public virtual Role Role { get; set; }
-        public virtual Question Question { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<User> User { get; set; }
     }
 }
